@@ -5,22 +5,6 @@ jobs:
   displayName: Build
 
   steps:
-  - task: UseJavaVersion@1
-    inputs:
-      versionSpec: '11'
-      addToPath: true
-      displayName: 'Install JDK 11'
-
-  - task: Gradle@2
-    inputs:
-      workingDirectory: '$(Build.SourcesDirectory)'
-      gradleWrapperFile: 'gradlew'
-      tasks: 'test'
-      publishJUnitResults: true
-      javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '1.11'
-      testResultsFiles: '**/build/test-results/test/*.xml'
-    displayName: 'Run Unit Tests'
 
   - task: Gradle@3
     inputs:
@@ -32,6 +16,17 @@ jobs:
       sonarQubeRunAnalysis: false
       spotBugsAnalysis: false
     displayName: Build
+
+  - task: Gradle@2
+    inputs:
+      workingDirectory: '$(Build.SourcesDirectory)'
+      gradleWrapperFile: 'gradlew'
+      tasks: 'test'
+      publishJUnitResults: true
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.11'
+      testResultsFiles: '**/build/test-results/test/*.xml'
+    displayName: 'Run Unit Tests'
 
   - task: SonarCloudPrepare@1
     inputs:
