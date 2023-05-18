@@ -24,7 +24,6 @@ jobs:
       testResultsFiles: '**/build/test-results/test/*.xml'
     displayName: 'Run Unit Tests'
 
-  steps:
   - task: Gradle@3
     inputs:
       gradleWrapperFile: 'gradlew'
