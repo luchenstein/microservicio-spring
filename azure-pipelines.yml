@@ -28,20 +28,6 @@ jobs:
       testResultsFiles: '**/build/test-results/test/*.xml'
     displayName: 'Run Unit Tests'
 
-  - task: Gradle@3
-    inputs:
-      gradleWrapperFile: 'gradlew'
-      tasks: 'build'
-      publishJUnitResults: true
-      testResultsFiles: '**/TEST-*.xml'
-      testRunTitle: 'Coverage'
-      codeCoverageToolOption: 'Cobertura'
-      codeCoverageClassFilesDirectories: 'build/classes/main/'
-      javaHomeOption: 'JDKVersion'
-      sonarQubeRunAnalysis: false
-      spotBugsAnalysis: false
-    displayName: 'Cobertura'
-
   - task: SonarCloudPrepare@1
     inputs:
       SonarCloud: 'Sonarcloud'
