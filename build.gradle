@@ -28,17 +28,17 @@ jacocoTestCoverageVerification {
 // Uncomment the following rules to see if they're failing.
 // The rules are commented out so that the build is green!
 
-//      rule {
-//          element = 'METHOD'
-//          limit {
-//              counter = 'LINE'
-//              value = 'COVEREDRATIO'
-//              minimum = 1.0
-//          }
+      rule {
+          element = 'METHOD'
+          limit {
+              counter = 'LINE'
+              value = 'COVEREDRATIO'
+              minimum = 1.0
+          }
 //          excludes = [
 //                  'io.reflectoring.coverage.part.PartlyCovered.partlyCovered(java.lang.String, boolean)',
 //          ]
-//      }
+      }
 
 //    rule {
 //      element = 'CLASS'
