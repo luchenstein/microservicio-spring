@@ -66,10 +66,10 @@ jobs:
       command: 'push'
     displayName: 'Push Docker'      
 
-- task: TaurusInstaller@0
-  inputs:
-    taurusVersion: '1.15.3'
-    pythonCommand: 'python3'
+  - task: TaurusInstaller@0
+    inputs:
+      taurusVersion: '1.15.3'
+      pythonCommand: 'python3'
 
   - task: TaurusRunner@0
     inputs:
