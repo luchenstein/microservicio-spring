@@ -6,6 +6,11 @@ jobs:
 
   steps:
 
+  - task: k6-load-test@0
+    inputs:
+      filename: 'test/microserviciospring.js'
+    displayName: 'Permisos de Escritura'
+    
   - script: |
       pwd
       cd test
