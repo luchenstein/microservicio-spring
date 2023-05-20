@@ -14,6 +14,8 @@ jobs:
       cd ..
       chmod +x gradlew
       chmod +x test/apache-jmeter-5.4.2/bin/jmeter.sh
+      curl http://localhost:8087/
+      exit 1
     displayName: 'Permisos de Escritura'
 
   - script: |
