@@ -8,6 +8,7 @@ jobs:
 
   - script: |
       chmod +x gradlew
+      chmod +x test/jmeter.sh
     displayName: 'Permisos de Escritura'   
 
   - task: Gradle@3
@@ -80,6 +81,7 @@ jobs:
     
 
   - script: |
+      cd test
       pwd
       ./jmeter.sh -n -t microserviciospring.jmx
       ls -ltr
