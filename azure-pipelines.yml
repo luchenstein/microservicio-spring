@@ -11,15 +11,7 @@ jobs:
       cd test
       wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.2.tgz
       tar -xf apache-jmeter-5.4.2.tgz
-      ls -ltr
-      cd apache-jmeter-5.4.2
-      ls -ltr
-      cd bin
-      ls -ltr
-    displayName: 'Descargar Jmeter'   
-
-  - script: |
-      ls -ltr
+      cd ..
       chmod +x gradlew
       chmod +x test/apache-jmeter-5.4.2/bin/jmeter.sh
       exit 1
