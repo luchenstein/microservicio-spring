@@ -66,6 +66,11 @@ jobs:
       command: 'push'
     displayName: 'Push Docker'      
 
+- task: TaurusInstaller@0
+  inputs:
+    taurusVersion: '1.15.3'
+    pythonCommand: 'python3'
+
   - task: TaurusRunner@0
     inputs:
       taurusConfig: |
@@ -77,5 +82,5 @@ jobs:
       jmeterPath: 'C:\Users\luisa\Downloads\apache-jmeter-5.5\bin'
       jmeterVersion: '5.5'
       outputDir: 'taurus-output'
-  
+
   - script: jmeter -n -t $(System.DefaultWorkingDirectory)/jmeter/test-plan.jmx -l $(System.DefaultWorkingDirectory)/resultados.jtl
