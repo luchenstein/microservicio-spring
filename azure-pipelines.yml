@@ -7,9 +7,21 @@ jobs:
   steps:
 
   - script: |
+      pwd
+      cd test
+      wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.2.tgz
+      tar -xf apache-jmeter-5.4.2.tgz
+      ls -ltr
+      cd apache-jmeter-5.5
+      ls -ltr
+      exit 1
+    displayName: 'Descargar Jmeter'   
+
+  - script: |
       ls -ltr
       chmod +x gradlew
-    displayName: 'Permisos de Escritura'   
+      chmod +x test/apache-jmeter-5.5/apache-jmeter-5.5/bin/jmeter.sh
+    displayName: 'Permisos de Escritura'
 
   - task: Gradle@3
     inputs:
@@ -72,20 +84,6 @@ jobs:
       repository: 'luchenstein/microservicio-spring'
       command: 'push'
     displayName: 'Push Docker'      
-
-  - script: |
-      pwd
-      cd test
-      wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.2.tgz
-      tar -xf apache-jmeter-5.4.2.tgz
-      ls -ltr
-    displayName: 'Descargar Jmeter'   
-
-  - script: |
-      ls -ltr
-      chmod +x gradlew
-      chmod +x test/apache-jmeter-5.5/apache-jmeter-5.5/bin/jmeter.sh
-    displayName: 'Permisos de Escritura'
     
   - script: |
       cd test/apache-jmeter-5.5/apache-jmeter-5.5/bin/
