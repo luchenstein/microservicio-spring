@@ -14,7 +14,6 @@ jobs:
       cd ..
       chmod +x gradlew
       chmod +x test/apache-jmeter-5.4.2/bin/jmeter.sh
-      exit 1
     displayName: 'Permisos de Escritura'
 
   - task: Gradle@3
