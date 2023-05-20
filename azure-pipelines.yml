@@ -7,6 +7,7 @@ jobs:
   steps:
 
   - script: |
+      ls -ltr
       chmod +x gradlew
       chmod +x test/jmeter.sh
     displayName: 'Permisos de Escritura'   
