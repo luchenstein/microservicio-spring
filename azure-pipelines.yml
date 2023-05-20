@@ -12,7 +12,7 @@ jobs:
       wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.2.tgz
       tar -xf apache-jmeter-5.4.2.tgz
       ls -ltr
-      cd apache-jmeter-5.5
+      cd apache-jmeter-5.4.2
       ls -ltr
       exit 1
     displayName: 'Descargar Jmeter'   
@@ -20,7 +20,7 @@ jobs:
   - script: |
       ls -ltr
       chmod +x gradlew
-      chmod +x test/apache-jmeter-5.5/apache-jmeter-5.5/bin/jmeter.sh
+      chmod +x test/apache-jmeter-5.4.2/apache-jmeter-5.4.2/bin/jmeter.sh
     displayName: 'Permisos de Escritura'
 
   - task: Gradle@3
