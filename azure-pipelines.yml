@@ -9,7 +9,6 @@ jobs:
   - script: |
       ls -ltr
       chmod +x gradlew
-      chmod +x test/jmeter.sh
     displayName: 'Permisos de Escritura'   
 
   - task: Gradle@3
@@ -58,6 +57,7 @@ jobs:
       containerRegistry: 'Usach'
       command: 'login'
     displayName: 'Login Docker'  
+    
   - task: Docker@2
     inputs:
       containerRegistry: 'Usach'
@@ -65,6 +65,7 @@ jobs:
       command: 'build'
       Dockerfile: '**/Dockerfile'
     displayName: 'Build Docker'
+    
   - task: Docker@2
     inputs:
       containerRegistry: 'Usach'
@@ -79,8 +80,13 @@ jobs:
       tar -xf apache-jmeter-5.4.2.tgz
       ls -ltr
     displayName: 'Descargar Jmeter'   
-    
 
+  - script: |
+      ls -ltr
+      chmod +x gradlew
+      chmod +x test/jmeter.sh
+    displayName: 'Permisos de Escritura'
+    
   - script: |
       cd test
       pwd
