@@ -49,3 +49,20 @@ jobs:
     displayName: 'Gradle Running Test'
     continueOnError: false
 
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Usach'
+    command: 'login'
+
+  - task: Docker@2
+    inputs:
+      containerRegistry: 'Usach'
+      repository: 'luchenstein/microservicio-spring'
+      command: 'build'
+      Dockerfile: '**/Dockerfile'
+
+  - task: Docker@2
+    inputs:
+      containerRegistry: 'Usach'
+      repository: 'luchenstein/microservicio-spring'
+      command: 'push'
