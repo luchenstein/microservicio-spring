@@ -17,17 +17,15 @@ jobs:
       spotBugsAnalysis: false
     displayName: Build
 
-  - task: Gradle@2
+  - task: PublishCodeCoverageResults@1
     inputs:
-      workingDirectory: '$(Build.SourcesDirectory)'
-      gradleWrapperFile: 'gradlew'
-      tasks: 'test'
-      publishJUnitResults: true
-      javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '1.11'
-      testResultsFiles: '**/build/test-results/test/*.xml'
-    displayName: 'Run Unit Tests'
-
+      codeCoverageTool: 'JaCoCo'
+      summaryFileLocation: '$(System.DefaultWorkingDirectory)/build/reports/jacoco/test/jacocoTestReport.xml'
+      pathToSources: '$(System.DefaultWorkingDirectory)/src/main/java/'
+      reportDirectory: '$(System.DefaultWorkingDirectory)/build/reports/jacoco/test'
+      failIfCoverageEmpty: true
+    displayName: UnitTesting
+    
   - task: SonarCloudPrepare@1
     inputs:
       SonarCloud: 'Sonarcloud'
