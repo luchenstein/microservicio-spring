@@ -65,17 +65,3 @@ jobs:
       repository: 'luchenstein/microservicio-spring'
       command: 'push'
     displayName: 'Push Docker'      
-    
-  - task: TaurusRunner@0
-    inputs:
-      taurusConfig: |
-        execution:
-         - scenario:
-             requests:
-              script: petclinic.jmx
-      jmeterHome: 'C:\Users\luisa\Downloads\apache-jmeter-5.5'
-      jmeterPath: 'C:\Users\luisa\Downloads\apache-jmeter-5.5\bin'
-      jmeterVersion: '5.5'
-      outputDir: 'taurus-output'
-
-  - script: jmeter -n -t $(System.DefaultWorkingDirectory)/jmeter/test-plan.jmx -l $(System.DefaultWorkingDirectory)/resultados.jtl
