@@ -46,23 +46,25 @@ jobs:
       sqGradlePluginVersionChoice: 'specify'
       sonarQubeGradlePluginVersion: '3.5.0.2730'
       spotBugsAnalysis: false
-    displayName: 'Gradle Running Test'
+    displayName: 'Gradle Sonarqube Running Test'
     continueOnError: false
 
   - task: Docker@2
     inputs:
       containerRegistry: 'Usach'
       command: 'login'
-
+    displayName: 'Login Docker'  
   - task: Docker@2
     inputs:
       containerRegistry: 'Usach'
       repository: 'luchenstein/microservicio-spring'
       command: 'build'
       Dockerfile: '**/Dockerfile'
-
+    displayName: 'Build Docker'
   - task: Docker@2
     inputs:
       containerRegistry: 'Usach'
       repository: 'luchenstein/microservicio-spring'
       command: 'push'
+    displayName: 'Push Docker'      
+
