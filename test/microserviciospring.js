@@ -2,7 +2,7 @@ import http from 'k6/http';
 import { sleep } from 'k6';
 
 export const options = {
-  stages: [
+  stages: 
     { duration: '10s', target: 15 },
     { duration: '20s', target: 15 },
     { duration: '10s', target: 0 },
@@ -13,6 +13,6 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get('https://test.k6.io');
+  const res = http.get('http://localhost:8087');
   sleep(1);
 }
