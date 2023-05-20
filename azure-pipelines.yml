@@ -16,6 +16,14 @@ jobs:
       chmod +x test/apache-jmeter-5.4.2/bin/jmeter.sh
     displayName: 'Permisos de Escritura'
 
+  - script: |
+      cd test
+      pwd
+      ./apache-jmeter-5.4.2/bin/jmeter.sh -n -t microserviciospring.jmx
+      ls -ltr
+      exit 1
+    displayName: 'Load Testing' 
+    
   - task: Gradle@3
     inputs:
       gradleWrapperFile: 'gradlew'
@@ -78,10 +86,5 @@ jobs:
       command: 'push'
     displayName: 'Push Docker'      
     
-  - script: |
-      cd test/apache-jmeter-5.4.2/bin
-      pwd
-      ./jmeter.sh -n -t microserviciospring.jmx
-      ls -ltr
-    displayName: 'Load Testing'   
+  
     
