@@ -84,11 +84,11 @@ jobs:
   - script: |
       ls -ltr
       chmod +x gradlew
-      chmod +x test/jmeter.sh
+      chmod +x test/apache-jmeter-5.5/apache-jmeter-5.5/bin/jmeter.sh
     displayName: 'Permisos de Escritura'
     
   - script: |
-      cd test
+      cd test/apache-jmeter-5.5/apache-jmeter-5.5/bin/
       pwd
       ./jmeter.sh -n -t microserviciospring.jmx
       ls -ltr
