@@ -68,6 +68,7 @@ jobs:
 
   - script: |
       pwd
+      cd test
       wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.2.tgz
       tar -xf apache-jmeter-5.4.2.tgz
       ls -ltr
