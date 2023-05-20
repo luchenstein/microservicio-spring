@@ -14,13 +14,15 @@ jobs:
       ls -ltr
       cd apache-jmeter-5.4.2
       ls -ltr
-      exit 1
+      cd bin
+      ls -ltr
     displayName: 'Descargar Jmeter'   
 
   - script: |
       ls -ltr
       chmod +x gradlew
-      chmod +x test/apache-jmeter-5.4.2/apache-jmeter-5.4.2/bin/jmeter.sh
+      chmod +x test/apache-jmeter-5.4.2/bin/jmeter.sh
+      exit 1
     displayName: 'Permisos de Escritura'
 
   - task: Gradle@3
@@ -86,7 +88,7 @@ jobs:
     displayName: 'Push Docker'      
     
   - script: |
-      cd test/apache-jmeter-5.5/apache-jmeter-5.5/bin/
+      cd test/apache-jmeter-5.4.2/bin
       pwd
       ./jmeter.sh -n -t microserviciospring.jmx
       ls -ltr
