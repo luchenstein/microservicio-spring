@@ -13,6 +13,6 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get('http://localhost:8087');
+  const res = http.get('http://lostres.cl');
   sleep(1);
 }
