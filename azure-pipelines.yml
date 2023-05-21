@@ -2,4 +2,4 @@ stages:
 - stage: buildGradleWeb
   displayName: Build aplicación
   jobs:
-  - job:  build.yml
+  - template:  build.yml
