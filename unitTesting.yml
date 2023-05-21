@@ -1,7 +1,5 @@
 jobs:
 - job:
-  pool:
-    vmImage: 'ubuntu-latest'
   displayName: UnitTesting
 
   steps:
