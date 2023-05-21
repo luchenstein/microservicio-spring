@@ -1,3 +1,4 @@
 stages:
 - stage: buildGradleWeb
   displayName: Build aplicación
+  jobs: build.yml
