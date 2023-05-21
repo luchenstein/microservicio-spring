@@ -3,3 +3,10 @@ stages:
   displayName: Build aplicación
   jobs:
   - template:  build.yml
+- stage: UnitTesting
+  displayName: Unit Test
+  dependsOn:
+  - buildGradleWeb
+  jobs:
+  - template:  unitTesting.yml
+
