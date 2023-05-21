@@ -13,6 +13,6 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get('https://test.k6.io');
+  const res = http.get('https://www.bci.cl/personas');
   sleep(1);
 }
