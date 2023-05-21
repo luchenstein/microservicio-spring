@@ -6,28 +6,10 @@ jobs:
 
   steps:
 
-  - task: k6-load-test@0
-    inputs:
-      filename: 'test/microserviciospring.js'
-    displayName: 'Permisos de Escritura'
     
   - script: |
-      pwd
-      cd test
-      wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.5.tgz
-      tar -xf apache-jmeter-5.5.tgz
-      cd ..
       chmod +x gradlew
-      chmod +x test/apache-jmeter-5.5/bin/jmeter.sh
     displayName: 'Permisos de Escritura'
-
-  - script: |
-      cd test
-      pwd
-      ./apache-jmeter-5.5/bin/jmeter.sh -n -t microserviciospring.jmx
-      ls -ltr
-      exit 1
-    displayName: 'Load Testing' 
     
   - task: Gradle@3
     inputs:
@@ -91,5 +73,7 @@ jobs:
       command: 'push'
     displayName: 'Push Docker'      
     
-  
-    
+  - task: k6-load-test@0
+    inputs:
+      filename: 'test/microserviciospring.js'
+    displayName: 'Permisos de Escritura'  
