@@ -13,6 +13,6 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get('https://www.lostres.cl');
+  const res = http.get('http://www.lostres.cl');
   sleep(1);
 }
