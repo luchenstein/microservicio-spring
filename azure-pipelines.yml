@@ -2,7 +2,7 @@ jobs:
 - job:
   pool:
     vmImage: 'ubuntu-latest'
-  displayName: Build
+  displayName: Fundamentos DevOps
 
   steps:
 
@@ -75,4 +75,4 @@ jobs:
   - task: k6-load-test@0
     inputs:
       filename: 'test/microserviciospring.js'
-    displayName: 'Permisos de Escritura'  
+    displayName: 'Prueba de Carga con K6'  
